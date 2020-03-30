@@ -11,17 +11,21 @@
 
 ​	`add_ch(c)`：增加字符 c。
 
+​	`add_chs(l,r)`：增加从 l 到 r 的字符。
+
 ​	`add_upper_case()`：初始化为大写字母。
 
 ​	`add_lower_case()`：初始化为小写字母。
+
+​	`add_numbers()`：初始化为数字。
 
 ​	`gen_char()`：从字符集里面随机抽取一个字符。
 
 ### 函数
 
-`RandInt`：生成随机 `int` 范围内整数。
+`rand_int()`：生成随机 `int` 范围内整数。
 
-`Rand`：生成 [l,r]​ 内整数。
+`random(l,r)`：生成 [l,r]​ 内整数。
 
 `gen_rand_string(len,c)`：用字符集 c 生成长度为 len 的随机字符串。
 
