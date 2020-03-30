@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
-int RandInt(){
+int rand_int(){
 	return rand()|(rand()<<15);
 }
-int Rand(int l,int r){
-	return RandInt()%(r-l+1);
+int random(int l,int r){
+	return rand_int()%(r-l+1);
 }
 struct char_set{
 	std::vector<int>ch;
@@ -16,20 +16,22 @@ struct char_set{
 	void add_ch(char c){
 		ch.push_back(c);
 	}
-	void add_upper_case(){
-		init();
-		for (int i=0;i<26;++i){
-			ch.push_back(i+'A');
+	void add_chs(char l,char r){
+		for (char i=l;i<=r;++i){
+			ch.push_back(i);
 		}
+	}
+	void add_upper_case(){
+		add_chs('A','Z');
 	}
 	void add_lower_case(){
-		init();
-		for (int i=0;i<26;++i){
-			ch.push_back(i+'a');
-		}
+		add_chs('a','z');
+	}
+	void add_numbers(){
+		add_chs('0','9');
 	}
 	char gen_char(){
-		return ch[Rand(0,ch.size()-1)];
+		return ch[random(0,ch.size()-1)];
 	}
 };
 std::string gen_rand_string(int len,char_set c){
@@ -52,12 +54,14 @@ std::string gen_palindrome(int len,char_set c){
 	return s;
 }
 std::string add_noise(std::string s,char_set c,int cnt){
+	//添加cnt个噪音 
 	for (int i=1;i<=cnt;++i){
-		s[Rand(0,s.size()-1)]=c.gen_char();
+		s[random(0,s.size()-1)]=c.gen_char();
 	}
 	return s;
 }
 std::string repeat(std::string pattern,int cnt){
+	//重复cnt次 
 	std::string s="";
 	for (int i=1;i<=cnt;++i){
 		s+=pattern;
