@@ -8,6 +8,14 @@
 #include "gen_xxx.h"
 ```
 
+## random.h
+
+### 函数
+
+`rand_int()`：生成随机 `int` 范围内整数。
+
+`random(l,r)`：生成 [l,r]​ 内整数。
+
 ## gen_string.h
 
 ### 类
@@ -29,10 +37,6 @@
 ​	`gen_char()`：从字符集里面随机抽取一个字符。
 
 ### 函数
-
-`rand_int()`：生成随机 `int` 范围内整数。
-
-`random(l,r)`：生成 [l,r]​ 内整数。
 
 `gen_rand_string(len,c)`：用字符集 c 生成长度为 len 的随机字符串。
 
