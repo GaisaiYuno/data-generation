@@ -44,13 +44,27 @@ graph random_tree(int n){
 	}
 	return g;
 }
+graph chain(int n){
+	graph g;
+	for (int i=2;i<=n;++i){
+		g.E.push_back(make_pair(i-1,i));
+	}
+	return g;
+}
+graph jhgraph(int n,int nd){
+	graph g;
+	for (int i=1;i<=n;++i){
+		if (i!=nd) g.E.push_back(make_pair(i,nd));
+	}
+	return g;
+}
 graph random_graph(int n,int m){
 	if (m<=n-1){
 		cerr<<"Error."<<endl;
 		return 0;
 	}
 	graph g=random_tree(n);
-	for (int i=1;i<=m;++i){
+	for (int i=1;i<=m-n+1;++i){
 		pair<int,int>e=random_edge(n);
 		while (!check(e)) e=random_edge(n);
 		g.add_edge(e);
