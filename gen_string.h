@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-#include "random.h"
 struct char_set{
 	std::vector<int>ch;
 	char_set(){

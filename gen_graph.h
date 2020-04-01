@@ -1,4 +1,3 @@
-#include "random.h"
 struct graph{
 	std::vector<std::pair<int,int> > E;
 	std::set<std::pair<int,int> >S;

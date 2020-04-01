@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 int rand_int(){
 	return rand()|(rand()<<15);
 }
