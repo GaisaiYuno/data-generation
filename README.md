@@ -129,9 +129,9 @@ gen_query(100000,1,100000); //再随机生成几组查询
 graph g;
 g=chain(n);
 g.add_edge(make_pair(1,n));
-g.print(); // 生成一个环
+g.print(); //生成一个环
 g=random_graph(n,m);
 g.shuffle();
-g.printw(0,1e9); // 生成一张边权在 [0,1e9] 之间的图，并打乱输出
+g.printw(0,1e9); //生成一张边权在 [0,1e9] 之间的图，并打乱输出
 ```
 
