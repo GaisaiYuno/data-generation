@@ -5,7 +5,7 @@
 
 ```cpp
 #include "random.h"
-#include "rexxx.h"
+#include "gen_xxx.h"
 ```
 
 ## gen_string.h
