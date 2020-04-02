@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include "random.h"
-#include "gen_graph.h" 
+#include "gen_string.h" 
 using namespace std;
 inline int read(){
 	int x=0,f=1;
@@ -16,14 +16,23 @@ inline int read(){
 	return x*f;
 }
 int main(){
-	srand(time(NULL));
-	int n=10,m=30;
-	graph g;
-	g=chain(n);
-	g.add_edge(make_pair(1,n));
-	g.print(); //生成一个环
-	g=random_graph(n,m);
-	g.shuffle();
-	g.printw(0,1e9); //生成一张边权在 [0,1e9] 之间的图，并打乱输出
+	int n=100;
+	
+	char_set rnd,c;
+	rnd.init();
+	rnd.add_lower_case();
+	
+	cout<<add_noise(repeat("poiop",n/5),rnd,10)<<endl; //生成一个由 poiop 重复 2000 次形成的字符串，添加 10 点噪音
+
+	c.init();
+	c.add_ch('a');
+	c.add_ch('b');
+	cout<<gen_rand_string(n,c)<<endl; //生成一个随机的由 a,b 构成的长度为 n 的字符串
+	cout<<gen_palindrome(n,c)<<endl; //生成一个随机的由 a,b 构成的长度为 n 的回文串
+	
+	c.init();
+	c.add_lower_case();
+	cout<<gen_rand_string(n,c)<<endl; //生成一个随机的由小写字母构成的长度为 n 的字符串
+	
 	return 0;
 }

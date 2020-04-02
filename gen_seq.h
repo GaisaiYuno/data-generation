@@ -3,7 +3,7 @@ struct sequence{
 	void print(char c=' ',char ed='\n'){
 		//默认格式：1 2 3 换行
 		for (int i=0;i<S.size();++i){
-			printf("%d\n",S[i]);
+			printf("%d ",S[i]);
 			putchar(c);
 		}
 		putchar(ed);
