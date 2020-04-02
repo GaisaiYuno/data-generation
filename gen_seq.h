@@ -1,4 +1,4 @@
-#include "random.h"
+
 struct sequence{
 	std::vector<int>S;
 	void print(char c=' ',char ed='\n'){

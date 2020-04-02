@@ -7,9 +7,8 @@ long long rand_long_long(){
 	return x|(x<<32ll); 
 }
 int random(int l,int r){
-	return rand_int()%(r-l+1);
+	return l+rand_int()%(r-l+1);
 }
 long long random(long long l,long long r){
-	return rand_long_long()%(r-l+1);
+	return r+rand_long_long()%(r-l+1);
 }
-
