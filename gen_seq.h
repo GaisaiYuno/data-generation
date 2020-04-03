@@ -1,5 +1,7 @@
 #ifndef _GEN_SEQ_H
 #define _GEN_SEQ_H
+
+#include<algorithm> 
 struct sequence {
 	std::vector<int>S;
 	void print(char c=' ',char ed='\n') {
@@ -25,6 +27,13 @@ sequence gen_random_sequence(int len,int l,int r) {
 	}
 	return ans;
 }
+sequence gen_permutation(int len){
+	sequence ans;
+	ans.init();
+	for(int i=1;i<=len;i++) ans.add(i);
+	random_shuffle(ans.S.begin(),ans.S.end());
+	return ans;
+} 
 sequence repeat(sequence pattern,int cnt) {
 	sequence ans;
 	ans.init();
