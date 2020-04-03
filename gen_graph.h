@@ -77,7 +77,7 @@ graph jhgraph(int n,int nd) {
 }
 graph random_graph(int n,int m,bool is_connect=1,bool has_same_edge=0,bool has_loop=0) {
 	graph g;
-	if(is_connect) {
+	if (is_connect) {
 		if (m<=n-1) {
 			std::cerr<<"Error."<<std::endl;
 			return graph();
@@ -86,15 +86,15 @@ graph random_graph(int n,int m,bool is_connect=1,bool has_same_edge=0,bool has_l
 //		g.print();
 		for (int i=1; i<=m-n+1; ++i) {
 			std::pair<int,int>e=random_edge(n,has_loop);
-			if(!has_same_edge){
+			if (!has_same_edge) {
 				while (!g.check(e)) e=random_edge(n,has_loop);
 			} 
 			g.add_edge(e);
 		}
 	}else{
-		for(int i=1;i<=m;i++){
+		for (int i=1;i<=m;i++) {
 			std::pair<int,int>e=random_edge(n,has_loop);
-			if(!has_same_edge){
+			if (!has_same_edge) {
 				while (!g.check(e)) e=random_edge(n,has_loop);
 			} 
 			g.add_edge(e);
