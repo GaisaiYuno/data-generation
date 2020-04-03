@@ -1,3 +1,4 @@
+#include<vector> 
 struct char_set{
 	std::vector<int>ch;
 	char_set(){
