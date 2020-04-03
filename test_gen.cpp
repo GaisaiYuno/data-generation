@@ -6,5 +6,5 @@
 using namespace std;
 int main(){
 	srand(time(NULL));
-	random_graph(5,10,CONNECT,ALLOW_SAME_EDGE,NO_SELF_LOOP).print();
+	random_graph(5,6,CONNECT,ALLOW_SAME_EDGE,NO_SELF_LOOP).print();
 }

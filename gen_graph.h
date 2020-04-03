@@ -1,10 +1,16 @@
+
+
+#ifndef _GEN_GRAPH_H
+#define _GEN_GRAPH_H
+
 #include<vector>
 #include<set>
 #include<algorithm>
 #include<utility>
 #include<cstdio>
 #include<iostream>
-
+#include"gen_seq.h"
+ 
 #define CONNECT 1
 #define NOT_CONNECT 0
 #define NO_SELF_LOOP 0
@@ -102,3 +108,4 @@ graph random_graph(int n,int m,bool is_connect=1,bool has_same_edge=0,bool has_l
 	} 
 	return g;
 }
+#endif

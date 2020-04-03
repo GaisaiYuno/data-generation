@@ -1,3 +1,8 @@
+
+
+#ifndef _GEN_STRING_H
+#define _GEN_STRING_H
+
 #include<vector> 
 struct char_set {
 	std::vector<int>ch;
@@ -62,3 +67,4 @@ std::string repeat(std::string pattern,int cnt) {
 	}
 	return s;
 }
+#endif
