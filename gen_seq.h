@@ -54,7 +54,8 @@ void gen_query(int m,int l,int r) {
 	for (int i=1; i<=m; ++i) {
 		int Left=random(l,r);
 		int Right=random(l,r);
-		if (Left>Right) printf("%d %d\n",Left,Right);
+		if (Left>Right) std::swap(Left,Right);
+		printf("%d %d\n",Left,Right);
 	}
 }
 #endif
