@@ -1,0 +1,27 @@
+{
+    // 有关 tasks.json 格式的文档，请参见
+    // https://go.microsoft.com/fwlink/?LinkId=733558
+    "version": "2.0.0",
+    "tasks": [{
+        "type": "shell",
+        "label": "task g++",
+        "command": "C:\\Program Files (x86)\\MinGW64\\bin\\g++.exe",
+        "args": [
+            "-g",
+            "${file}",
+            "-o",
+            "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            // "-Wall",
+            "-DLOCAL",
+            "-Wl,--stack=64000000",
+            "-std=c++11",
+        ],
+        "options": {
+            "cwd": "C:\\Program Files (x86)\\MinGW64\\bin"
+        },
+        "problemMatcher": [
+            "$gcc"
+        ],
+        "group": "build"
+    }]
+}
