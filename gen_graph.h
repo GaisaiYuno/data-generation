@@ -10,7 +10,7 @@
 #include<cstdio>
 #include<iostream>
 #include"gen_seq.h"
- 
+
 #define CONNECT 1
 #define NOT_CONNECT 0
 #define NO_SELF_LOOP 0
@@ -38,14 +38,14 @@ struct graph {
 		E.clear();
 		S.clear();
 	}
-	 
+
 	void add_edge(std::pair<int,int>p) {
 		E.push_back(p);
 		if (p.first>p.second) std::swap(p.first,p.second);
 		S.insert(p);
 	}
-	void add_edge(int x,int y){//让加边更方便 
-		add_edge(std::make_pair(x,y)); 
+	void add_edge(int x,int y) { //让加边更方便
+		add_edge(std::make_pair(x,y));
 	}
 	bool check(std::pair<int,int>p) {
 		if (p.first>p.second) std::swap(p.first,p.second);
@@ -67,7 +67,7 @@ graph random_tree(int n) {
 	graph g;
 	for (int i=2; i<=n; ++i) {
 //		g.E.push_back(std::make_pair(random(1,i-1),i)); 原来这里没有更新S,会导致重边
-		g.add_edge(std::make_pair(random(1,i-1),i)); 
+		g.add_edge(std::make_pair(random(1,i-1),i));
 	}
 	return g;
 }
@@ -93,45 +93,44 @@ graph random_graph(int n,int m,bool is_connect=1,bool has_same_edge=0,bool has_l
 			return graph();
 		}
 		g=random_tree(n);
-//		g.print();
 		for (int i=1; i<=m-n+1; ++i) {
 			std::pair<int,int>e=random_edge(n,has_loop);
 			if (!has_same_edge) {
 				while (!g.check(e)) e=random_edge(n,has_loop);
-			} 
+			}
 			g.add_edge(e);
 		}
-	}else{
-		for (int i=1;i<=m;i++) {
+	} else {
+		for (int i=1; i<=m; i++) {
 			std::pair<int,int>e=random_edge(n,has_loop);
 			if (!has_same_edge) {
 				while (!g.check(e)) e=random_edge(n,has_loop);
-			} 
+			}
 			g.add_edge(e);
 		}
-	} 
+	}
 	return g;
 }
-graph random_dag(int n,int m,bool has_same_edge=0){
+graph random_dag(int n,int m,bool has_same_edge=0) {
 	sequence topo=gen_permutation(n);//生成拓扑序
-	if(n==1&&m>0){
+	if(n==1&&m>0) {
 		std::cerr<<"Error."<<std::endl;
 		return graph();
 	}
 	graph g;
-	for(int i=1;i<=m;i++){
+	for(int i=1; i<=m; i++) {
 		int x=random(1,n-1);
 		int y=random(x+1,n);
 		std::pair<int,int> e=std::make_pair(topo.S[x-1],topo.S[y-1]);
-		if(!has_same_edge){
-			while(!g.check(e)){
+		if(!has_same_edge) {
+			while(!g.check(e)) {
 				x=random(1,n-1);
 				y=random(x+1,n);
 				e=std::make_pair(topo.S[x-1],topo.S[y-1]);
-			} 
-		} 
-		g.add_edge(e); 
-	} 
+			}
+		}
+		g.add_edge(e);
+	}
 	return g;
 }
 #endif
