@@ -5,7 +5,8 @@
 #include <ctime>
 #include <set>
 using namespace std;
-int main() {
-  int x;
-  int y;
+int main(){
+    int a;
+    int b;
+    
 }
