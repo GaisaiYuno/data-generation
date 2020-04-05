@@ -1,6 +1,7 @@
 #ifndef _GEN_SEQ_H
 #define _GEN_SEQ_H
 
+#include"random.h"
 #include<algorithm>
 struct sequence {
 	std::vector<int>S;

@@ -9,7 +9,7 @@
 #include<utility>
 #include<cstdio>
 #include<iostream>
-#include"gen_seq.h"
+#include"gen_sequence.h"
 
 #define CONNECT 1
 #define NOT_CONNECT 0
