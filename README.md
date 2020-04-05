@@ -79,6 +79,8 @@ cout<<gen_rand_string(n,c); //生成一个随机的由小写字母构成的长�
 
 `gen_random_sequence(len,l,r)`：生成一个长度为 len，每个元素从 [l,r] 中选取的数列。
 
+`gen_random_permutation(len)`.生成一个长度为len的排列
+
 `repeat(pattern,cnt)`：将数列 pattern 重复 cnt 次。
 
 `add_noise(seq,cnt,l,r)`：在数列 seq 中添加 cnt 个噪音，每个元素从 [l,r] 中选取。
@@ -98,6 +100,7 @@ gen_query(100000,1,100000); //再随机生成几组查询
 ### 类
 
 `graph`（图）：
+    注意图中的边默认是一个`std::pair<int,int>`
 
 ​	`init`：初始化。
 
@@ -109,13 +112,17 @@ gen_query(100000,1,100000); //再随机生成几组查询
 
 ​	`add_edge(p)`：添加边 p。
 
+ `add_edge(u,v)`: 添加边(u,v)
+
 ​	`check(p)`：检查边 p 是否存在。
 
 ### 函数
 
 `random_tree(n)`：生成一棵 n 个节点的树。
 
-`random_graph(n,m)`：生成一张 n 个节点，m 条边的图。
+`random_graph(n,m,is_connected,has_same_edge),has_self_loop)`：生成一张 n 个节点，m 条边的图。`is_connected`表示是否连通(看成无向图),`has_same_edge`表示是否有重边,`has_self_loop`表示是否有自环。另外还提供了宏`CONNECTED,NOT_CONNECTED,NO_SELF_LOOP,ALLOW_SELF_LOOP,NO_SAME_EDGE,ALLOW_SAME_EDGE`可以直接传入。
+
+`random_dag(n,m,has_same_edge)`表示生成一张n个点m条边的有向无环图(DAG)
 
 `random_edge(n)`：生成一条端点在 [1,n] 之间的边。
 
@@ -130,7 +137,7 @@ graph g;
 g=chain(n);
 g.add_edge(make_pair(1,n));
 g.print(); //生成一个环
-g=random_graph(n,m);
+g=random_graph(n,m,CONNECTED,NO_SAME_EDGE,NO_SELF_LOOP);
 g.shuffle();
 g.printw(0,1e9); //生成一张边权在 [0,1e9] 之间的图，并打乱输出
 ```
