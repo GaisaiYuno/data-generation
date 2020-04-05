@@ -27,7 +27,7 @@ struct graph {
 		}
 		puts("");
 	}
-	void printw(int l, int r) { //����Ȩ
+	void printw(int l, int r) { //输出带边权的边
 		for (int i = 0; i < E.size(); ++i) {
 			printf("%d %d %d\n", E[i].first, E[i].second, random(l, r));
 		}
@@ -44,7 +44,7 @@ struct graph {
 			std::swap(p.first, p.second);
 		S.insert(p);
 	}
-	void add_edge(int x, int y) { //�üӱ߸�����
+	void add_edge(int x, int y) { //方便加边
 		add_edge(std::make_pair(x, y));
 	}
 	bool check(std::pair<int, int> p) {
@@ -71,7 +71,7 @@ graph random_tree(int n) {
 	graph g;
 	for (int i = 2; i <= n; ++i) {
 		//		g.E.push_back(std::make_pair(random(1,i-1),i));
-		//ԭ������û�и���S,�ᵼ���ر�
+		//生成一棵树
 		g.add_edge(std::make_pair(random(1, i - 1), i));
 	}
 	return g;
@@ -87,7 +87,7 @@ graph jhgraph(int n, int nd) {
 	graph g;
 	for (int i = 1; i <= n; ++i) {
 		if (i != nd)
-			g.E.push_back(std::make_pair(i, nd));
+			g.add_edge(std::make_pair(i, nd));
 	}
 	return g;
 }
@@ -122,7 +122,7 @@ graph random_graph(int n, int m, bool is_connect = 1, bool has_same_edge = 0,
 	return g;
 }
 graph random_dag(int n, int m, bool has_same_edge = 0) {
-	sequence topo = gen_permutation(n); //����������
+	sequence topo = gen_permutation(n); //通过拓扑序来生成一个图
 	if (n == 1 && m > 0) {
 		std::cerr << "Error." << std::endl;
 		return graph();
