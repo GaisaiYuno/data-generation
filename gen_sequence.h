@@ -6,9 +6,9 @@
 struct sequence {
 	std::vector<int>S;
 	void print(char c=' ',char ed='\n') {
-		//默认格式：1 2 3 换行
+		//脛卢脠脧赂帽脢陆拢潞1 2 3 禄禄脨脨
 		for (int i=0; i<S.size(); ++i) {
-			printf("%d ",S[i]);
+			printf("%d",S[i]);
 			putchar(c);
 		}
 		putchar(ed);
